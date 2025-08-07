@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone 
 
 class WorkoutLog(models.Model):
     date = models.DateField()
@@ -8,11 +9,10 @@ class WorkoutLog(models.Model):
     def __str__(self):
         return f"{self.date} - {self.type} ({self.duration} mins)"
 
-
 class MealLog(models.Model):
-    date = models.DateField()
+    datetime = models.DateTimeField(default=timezone.now)  
     meal = models.CharField(max_length=100)
     calories = models.PositiveIntegerField()
 
     def __str__(self):
-        return f"{self.date} - {self.meal} ({self.calories} kcal)"
+        return f"{self.datetime} - {self.meal} ({self.calories} kcal)"

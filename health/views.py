@@ -7,5 +7,6 @@ class WorkoutLogViewSet(viewsets.ModelViewSet):
     serializer_class = WorkoutLogSerializer
 
 class MealLogViewSet(viewsets.ModelViewSet):
-    queryset = MealLog.objects.all().order_by('-date')
+    queryset = MealLog.objects.all().order_by('-datetime')
+
     serializer_class = MealLogSerializer
